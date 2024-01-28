@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface FightMovementRepository extends JpaRepository<FightMovement, Long> {
+//    FightMovement findByHero_Id(Long heroId);
 }

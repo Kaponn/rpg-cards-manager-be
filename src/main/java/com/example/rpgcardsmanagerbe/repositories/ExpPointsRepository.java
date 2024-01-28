@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ExpPointsRepository extends JpaRepository<ExpPoints, Long> {
+//    ExpPoints findByHero_Id(Long heroId);
 }

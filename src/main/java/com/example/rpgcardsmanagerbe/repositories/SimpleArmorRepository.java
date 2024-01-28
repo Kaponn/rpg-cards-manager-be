@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface SimpleArmorRepository extends JpaRepository<SimpleArmor, Long> {
+//    SimpleArmor findByHero_Id(Long heroId);
 }

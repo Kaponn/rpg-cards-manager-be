@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface HeroBioRepository extends JpaRepository<HeroBio, Long> {
+//    HeroBio findByHero_Id(Long heroId);
 }

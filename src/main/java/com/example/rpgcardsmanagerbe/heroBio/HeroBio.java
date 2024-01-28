@@ -1,25 +1,32 @@
 package com.example.rpgcardsmanagerbe.heroBio;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class HeroBio {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
+//  @OneToOne
+//  private Hero hero;
   private int age;
   private String gender;
   private String eyeColor;
   private String hairColor;
   private int weight;
   private int height;
-  private String startSign;
+  private String starSign;
   private int siblings;
   private String birthPlace;
   private String specialSigns;
+
+//  public Hero getHero() {
+//    return hero;
+//  }
+//
+//  public void setHero(Hero hero) {
+//    this.hero = hero;
+//  }
 
   public Long getId() {
     return id;
@@ -73,12 +80,12 @@ public class HeroBio {
     this.height = height;
   }
 
-  public String getStartSign() {
-    return startSign;
+  public String getStarSign() {
+    return starSign;
   }
 
-  public void setStartSign(String startSign) {
-    this.startSign = startSign;
+  public void setStarSign(String starSign) {
+    this.starSign = starSign;
   }
 
   public int getSiblings() {

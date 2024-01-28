@@ -1,6 +1,7 @@
 package com.example.rpgcardsmanagerbe.advancedArmor;
 
 import com.example.rpgcardsmanagerbe.hero.Hero;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -10,11 +11,20 @@ public class AdvancedArmor {
   private Long id;
   @ManyToOne
   @JoinColumn(name = "hero_id")
+  @JsonIgnore
   private Hero hero;
   private String type;
   private int weight;
   private String location;
   private int healthPoints;
+
+  public void setHero(Hero hero) {
+    this.hero = hero;
+  }
+
+  public Hero getHero() {
+    return hero;
+  }
 
   public Long getId() {
     return id;

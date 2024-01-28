@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface GoldRepository extends JpaRepository<Gold, Long> {
+//    Gold findByHero_Id(Long heroId);
 }

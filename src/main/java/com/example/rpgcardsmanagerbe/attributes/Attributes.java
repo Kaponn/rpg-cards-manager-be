@@ -1,6 +1,7 @@
 package com.example.rpgcardsmanagerbe.attributes;
 
 import com.example.rpgcardsmanagerbe.hero.Hero;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -10,13 +11,22 @@ public class Attributes {
   private Long id;
   @ManyToOne
   @JoinColumn(name = "hero_id")
+  @JsonIgnore
   private Hero hero;
   private int starterMain;
   private int devMain;
   private int currentMain;
-  private int starterSecondary;
-  private int devSecondary;
-  private int currentSecondary;
+//  private int starterSecondary;
+//  private int devSecondary;
+//  private int currentSecondary;
+
+  public void setHero(Hero hero) {
+    this.hero = hero;
+  }
+
+  public Hero getHero() {
+    return hero;
+  }
 
   public Long getId() {
     return id;
@@ -46,27 +56,27 @@ public class Attributes {
     this.currentMain = currentMain;
   }
 
-  public int getStarterSecondary() {
-    return starterSecondary;
-  }
-
-  public void setStarterSecondary(int starterSecondary) {
-    this.starterSecondary = starterSecondary;
-  }
-
-  public int getDevSecondary() {
-    return devSecondary;
-  }
-
-  public void setDevSecondary(int devSecondary) {
-    this.devSecondary = devSecondary;
-  }
-
-  public int getCurrentSecondary() {
-    return currentSecondary;
-  }
-
-  public void setCurrentSecondary(int currentSecondary) {
-    this.currentSecondary = currentSecondary;
-  }
+//  public int getStarterSecondary() {
+//    return starterSecondary;
+//  }
+//
+//  public void setStarterSecondary(int starterSecondary) {
+//    this.starterSecondary = starterSecondary;
+//  }
+//
+//  public int getDevSecondary() {
+//    return devSecondary;
+//  }
+//
+//  public void setDevSecondary(int devSecondary) {
+//    this.devSecondary = devSecondary;
+//  }
+//
+//  public int getCurrentSecondary() {
+//    return currentSecondary;
+//  }
+//
+//  public void setCurrentSecondary(int currentSecondary) {
+//    this.currentSecondary = currentSecondary;
+//  }
 }

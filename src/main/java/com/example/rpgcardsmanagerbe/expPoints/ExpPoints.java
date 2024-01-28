@@ -1,17 +1,25 @@
 package com.example.rpgcardsmanagerbe.expPoints;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.example.rpgcardsmanagerbe.hero.Hero;
+import jakarta.persistence.*;
 
 @Entity
 public class ExpPoints {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
+//  @OneToOne
+//  private Hero hero;
   private int currentPoints;
   private int allPoints;
+
+//  public Hero getHero() {
+//    return hero;
+//  }
+//
+//  public void setHero(Hero hero) {
+//    this.hero = hero;
+//  }
 
   public Long getId() {
     return id;

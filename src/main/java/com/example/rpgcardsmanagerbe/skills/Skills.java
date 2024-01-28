@@ -1,6 +1,7 @@
 package com.example.rpgcardsmanagerbe.skills;
 
 import com.example.rpgcardsmanagerbe.hero.Hero;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -10,12 +11,21 @@ public class Skills {
   private Long id;
   @ManyToOne
   @JoinColumn(name = "hero_id")
+  @JsonIgnore
   private Hero hero;
   private String skill;
   private boolean bought;
   private boolean plus10;
   private boolean plus20;
   private String relatedAbilities;
+
+  public void setHero(Hero hero) {
+    this.hero = hero;
+  }
+
+  public Hero getHero() {
+    return hero;
+  }
 
   public Long getId() {
     return id;
