@@ -12,6 +12,7 @@ import com.example.rpgcardsmanagerbe.heroInfo.HeroInfo;
 import com.example.rpgcardsmanagerbe.player.Player;
 import com.example.rpgcardsmanagerbe.simpleArmor.SimpleArmor;
 import com.example.rpgcardsmanagerbe.skills.Skills;
+import com.example.rpgcardsmanagerbe.user.User;
 import com.example.rpgcardsmanagerbe.weapons.Weapons;
 import jakarta.persistence.*;
 
@@ -48,6 +49,9 @@ public class Hero {
   private List<Skills> skills;
   @OneToMany(mappedBy = "hero", cascade = CascadeType.ALL)
   private List<Equipment> equipment;
+  @ManyToOne
+  @JoinColumn(name = "user_id")
+  private User user;
 
   public Long getId() {
     return id;
@@ -155,5 +159,13 @@ public class Hero {
 
   public void setEquipment(List<Equipment> equipment) {
     this.equipment = equipment;
+  }
+
+  public User getUser() {
+    return user;
+  }
+
+  public void setUser(User user) {
+    this.user = user;
   }
 }

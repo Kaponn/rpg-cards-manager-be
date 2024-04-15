@@ -60,11 +60,9 @@ public class HeroController {
       heroService.saveHero(hero);
       return new ResponseEntity<>(hero, HttpStatus.CREATED);
     } catch (Exception e) {
-      // Log the exception
       System.err.println("Error creating hero: " + e.getMessage());
       e.printStackTrace();
 
-      // Return a 500 Internal Server Error response
       return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
   }
