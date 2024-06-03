@@ -129,42 +129,53 @@ public class HeroService {
     Hero existingHero = heroRepository.findById(heroId)
             .orElseThrow(() -> new EntityNotFoundException("Hero not found"));
 
-    existingHero.setAbilities(updatedHero.getAbilities());
-    existingHero.setAdvancedArmor(updatedHero.getAdvancedArmor());
-    existingHero.setAttributes(updatedHero.getAttributes());
-    existingHero.setEquipment(updatedHero.getEquipment());
-    existingHero.setExpPoints(updatedHero.getExpPoints());
-    existingHero.setFightMovement(updatedHero.getFightMovement());
-    existingHero.setGold(updatedHero.getGold());
-    existingHero.setHeroBio(updatedHero.getHeroBio());
-    existingHero.setHeroInfo(updatedHero.getHeroInfo());
-    existingHero.setPlayer(updatedHero.getPlayer());
-    existingHero.setSimpleArmor(updatedHero.getSimpleArmor());
-    existingHero.setSkills(updatedHero.getSkills());
-    existingHero.setWeapons(updatedHero.getWeapons());
+    if (updatedHero.getAbilities() != null) {
+      existingHero.setAbilities(updatedHero.getAbilities());
+    }
+    if (updatedHero.getAdvancedArmor() != null) {
+      existingHero.setAdvancedArmor(updatedHero.getAdvancedArmor());
+    }
+    if (updatedHero.getAttributes() != null) {
+      existingHero.setAttributes(updatedHero.getAttributes());
+    }
+    if (updatedHero.getEquipment() != null) {
+      existingHero.setEquipment(updatedHero.getEquipment());
+    }
+    if (updatedHero.getExpPoints() != null) {
+      existingHero.setExpPoints(updatedHero.getExpPoints());
+    }
+    if (updatedHero.getFightMovement() != null) {
+      existingHero.setFightMovement(updatedHero.getFightMovement());
+    }
+    if (updatedHero.getGold() != null) {
+      existingHero.setGold(updatedHero.getGold());
+    }
+    if (updatedHero.getHeroBio() != null) {
+      existingHero.setHeroBio(updatedHero.getHeroBio());
+    }
+    if (updatedHero.getHeroInfo() != null) {
+      existingHero.setHeroInfo(updatedHero.getHeroInfo());
+    }
+    if (updatedHero.getPlayer() != null) {
+      existingHero.setPlayer(updatedHero.getPlayer());
+    }
+    if (updatedHero.getSimpleArmor() != null) {
+      existingHero.setSimpleArmor(updatedHero.getSimpleArmor());
+    }
+    if (updatedHero.getSkills() != null) {
+      existingHero.setSkills(updatedHero.getSkills());
+    }
+    if (updatedHero.getWeapons() != null) {
+      existingHero.setWeapons(updatedHero.getWeapons());
+    }
 
     heroRepository.save(existingHero);
-
-    abilitiesService.updateAbilitiesByHeroId(heroId, updatedHero.getAbilities());
-    advancedArmorService.updateAdvancedArmorByHeroId(heroId, updatedHero.getAdvancedArmor());
-    attributesService.updateAttributesByHeroId(heroId, updatedHero.getAttributes());
-    equipmentService.updateEquipmentByHeroId(heroId, updatedHero.getEquipment());
-    expPointsService.updateExpPointsByHeroId(heroId, updatedHero.getExpPoints());
-    fightMovementService.updateFightMovementByHeroId(heroId, updatedHero.getFightMovement());
-    goldService.updateGoldByHeroId(heroId, updatedHero.getGold());
-    heroBioService.updateHeroBioByHeroId(heroId, updatedHero.getHeroBio());
-    heroInfoService.updateHeroInfoByHeroId(heroId, updatedHero.getHeroInfo());
-    playerService.updatePlayerByHeroId(heroId, updatedHero.getPlayer());
-    simpleArmorService.updateSimpleArmorByHeroId(heroId, updatedHero.getSimpleArmor());
-    skillsService.updateSkillsByHeroId(heroId, updatedHero.getSkills());
-    weaponsService.updateWeaponsByHeroId(heroId, updatedHero.getWeapons());
-  }
+ }
 
 
   @Transactional
   public Hero createEmptyHero() {
-    Hero hero = new Hero();
-    return hero;
+    return new Hero();
   }
 
   // TODO break too many inputs into data class
